@@ -1,0 +1,812 @@
+<!DOCTYPE html><html lang="zh-TW"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>佳佳香肉脯店 - 四十年老店 百年傳承</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;family=Noto+Sans+TC:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-red: #C41E3A;
+            --secondary-gold: #D4AF37;
+            --warm-brown: #8B4513;
+            --light-cream: #FFF8DC;
+            --dark-text: #2C1810;
+            --border-traditional: rgba(196, 30, 58, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', 'Poppins', sans-serif;
+            color: var(--dark-text);
+            background: #FAFAFA;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .traditional-pattern {
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(212, 175, 55, 0.03) 10px, rgba(212, 175, 55, 0.03) 20px);
+        }
+
+        .gradient-red {
+            background: linear-gradient(135deg, #C41E3A 0%, #8B1428 100%);
+        }
+
+        .gradient-gold {
+            background: linear-gradient(135deg, #D4AF37 0%, #B8941F 100%);
+        }
+
+        .btn-primary {
+            background: var(--primary-red);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-red);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            background: #8B1428;
+            border-color: #8B1428;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(196, 30, 58, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary-red);
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-red);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-secondary:hover {
+            background: var(--light-cream);
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 900;
+            color: var(--dark-text);
+            text-align: center;
+            margin-bottom: 12px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--secondary-gold);
+            border-radius: 2px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(196, 30, 58, 0.15);
+            border-color: var(--secondary-gold);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            background: var(--secondary-gold);
+            color: white;
+        }
+
+        .phone-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-red);
+            color: white;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 24px rgba(196, 30, 58, 0.4);
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .phone-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 32px rgba(196, 30, 58, 0.5);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 6px 24px rgba(196, 30, 58, 0.4);
+            }
+            50% {
+                box-shadow: 0 6px 24px rgba(196, 30, 58, 0.4), 0 0 0 15px rgba(196, 30, 58, 0.1);
+            }
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .hero-pattern {
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(196, 30, 58, 0.1) 0%, transparent 50%);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--light-cream) 0%, #FFF 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            border: 3px solid var(--secondary-gold);
+            font-size: 36px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--secondary-gold) 0%, var(--primary-red) 100%);
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .phone-float {
+                width: 56px;
+                height: 56px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .timeline-item::before {
+                left: 20px;
+            }
+        }
+
+        .stamp-effect {
+            position: relative;
+        }
+
+        .stamp-effect::before {
+            content: '百年傳承';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--primary-red);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: 700;
+            transform: rotate(15deg);
+            box-shadow: 0 4px 12px rgba(196, 30, 58, 0.3);
+        }
+
+        .kuse-branding {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #666;
+            font-size: 14px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .kuse-branding:hover {
+            color: var(--primary-red);
+        }
+
+        .kuse-branding svg {
+            height: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="gradient-red sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                        <span class="text-2xl">🥓</span>
+                    </div>
+                    <div>
+                        <h1 class="text-white text-xl sm:text-2xl font-bold">佳佳香肉脯店</h1>
+                        <p class="text-white/80 text-xs sm:text-sm">四十年老店 百年傳承</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center gap-2">
+                    <a href="#home" class="nav-link">首頁</a>
+                    <a href="#products" class="nav-link">產品介紹</a>
+                    <a href="#order" class="nav-link">訂購方式</a>
+                    <a href="#about" class="nav-link">關於我們</a>
+                    <a href="tel:0953566216" class="btn-secondary bg-white/10 border-white text-white hover:bg-white hover:text-[#C41E3A]">
+                        <span>📞</span>
+                        <span>立即訂購</span>
+                    </a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobileMenuBtn" class="text-white p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden bg-[#8B1428] border-t border-white/10">
+            <div class="px-4 py-3 space-y-2">
+                <a href="#home" class="block nav-link">首頁</a>
+                <a href="#products" class="block nav-link">產品介紹</a>
+                <a href="#order" class="block nav-link">訂購方式</a>
+                <a href="#about" class="block nav-link">關於我們</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-pattern py-16 sm:py-24 bg-gradient-to-br from-[#FFF8DC] to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="flex flex-wrap gap-3 mb-6">
+                        <span class="badge">四十年老店</span>
+                        <span class="badge" style="background: var(--primary-red);">百年傳承</span>
+                        <span class="badge" style="background: var(--warm-brown);">工廠自產</span>
+                    </div>
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-[#2C1810] mb-6 leading-tight">
+                        傳承百年<br>
+                        <span class="text-[#C41E3A]">古早好滋味</span>
+                    </h2>
+                    <p class="text-lg sm:text-xl text-gray-700 mb-8 leading-relaxed">
+                        四十年堅持，百年工藝傳承<br>
+                        工廠自產，品質穩定可靠<br>
+                        專營肉鬆、肉乾、臘肉、香腸等傳統美味
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="tel:0953566216" class="btn-primary text-center">
+                            <span>📞</span>
+                            <span>立即電話訂購</span>
+                        </a>
+                        <a href="#products" class="btn-secondary text-center">
+                            <span>🥓</span>
+                            <span>查看產品</span>
+                        </a>
+                    </div>
+                    <div class="mt-8 p-6 bg-white rounded-xl border-2 border-[#D4AF37] shadow-lg">
+                        <div class="flex items-center gap-4">
+                            <div class="w-16 h-16 bg-gradient-to-br from-[#C41E3A] to-[#8B1428] rounded-full flex items-center justify-center text-3xl">
+                                📞
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-600 mb-1">訂購專線</p>
+                                <a href="tel:0953566216" class="text-2xl sm:text-3xl font-bold text-[#C41E3A] hover:text-[#8B1428] transition-colors">
+                                    0953-566-216
+                                </a>
+                                <p class="text-xs text-gray-500 mt-1">營業時間不固定，請先電話聯絡</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="stamp-effect bg-white rounded-2xl shadow-2xl p-8 transform hover:scale-105 transition-transform duration-300">
+                        <div class="aspect-square bg-gradient-to-br from-[#FFF8DC] to-[#FFE4B5] rounded-xl flex items-center justify-center">
+                            <div class="text-center">
+                                <div class="text-8xl mb-4">🥓</div>
+                                <p class="text-2xl font-bold text-[#8B4513]">傳統美味</p>
+                                <p class="text-lg text-gray-600 mt-2">堅持品質 用心製作</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 mt-6">
+                            <div class="text-center p-4 bg-[#FFF8DC] rounded-lg">
+                                <p class="text-3xl font-bold text-[#C41E3A]">40+</p>
+                                <p class="text-sm text-gray-600 mt-1">年老店經驗</p>
+                            </div>
+                            <div class="text-center p-4 bg-[#FFF8DC] rounded-lg">
+                                <p class="text-3xl font-bold text-[#C41E3A]">100%</p>
+                                <p class="text-sm text-gray-600 mt-1">工廠自產</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="feature-icon">
+                        <span>🏭</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#2C1810] mb-3">工廠自產</h3>
+                    <p class="text-gray-600">自有工廠生產製造，品質穩定可靠，每一份產品都經過嚴格把關</p>
+                </div>
+                <div class="text-center">
+                    <div class="feature-icon">
+                        <span>⏰</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#2C1810] mb-3">四十年老店</h3>
+                    <p class="text-gray-600">四十年經營經驗，深受顧客信賴，傳承古早味的堅持與用心</p>
+                </div>
+                <div class="text-center">
+                    <div class="feature-icon">
+                        <span>🎖️</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#2C1810] mb-3">百年傳承</h3>
+                    <p class="text-gray-600">百年工藝傳承，嚴選食材，遵循傳統製法，保留最道地的風味</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-20 traditional-pattern bg-[#FAFAFA]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="section-title">精選產品系列</h2>
+                <p class="text-gray-600 mt-6 text-lg">四大經典系列，傳承百年好滋味</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1: 肉鬆 -->
+                <div class="product-card">
+                    <div class="h-64 bg-gradient-to-br from-[#FFE4B5] to-[#FFD700] flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute top-4 right-4 bg-[#C41E3A] text-white px-3 py-1 rounded-full text-xs font-bold">
+                            熱銷
+                        </div>
+                        <span class="text-8xl">🥓</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-[#2C1810] mb-3">香濃肉鬆</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            精選上等豬肉，手工製作，口感鬆軟細緻，香氣濃郁，是配飯配粥的最佳選擇。
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-[#FFF8DC] text-[#8B4513] px-3 py-1 rounded-full">手工製作</span>
+                            <span class="text-xs bg-[#FFF8DC] text-[#8B4513] px-3 py-1 rounded-full">精選豬肉</span>
+                        </div>
+                        <a href="tel:0953566216" class="btn-secondary w-full justify-center">
+                            <span>📞</span>
+                            <span>電話訂購</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 2: 肉乾 -->
+                <div class="product-card">
+                    <div class="h-64 bg-gradient-to-br from-[#D2691E] to-[#8B4513] flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute top-4 right-4 bg-[#D4AF37] text-white px-3 py-1 rounded-full text-xs font-bold">
+                            推薦
+                        </div>
+                        <span class="text-8xl">🍖</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-[#2C1810] mb-3">美味肉乾</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            嚴選肉品，獨家醃製配方，烘烤至完美焦香，口感Q彈有嚼勁，越嚼越香。
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-[#FFF8DC] text-[#8B4513] px-3 py-1 rounded-full">獨家配方</span>
+                            <span class="text-xs bg-[#FFF8DC] text-[#8B4513] px-3 py-1 rounded-full">Q彈有勁</span>
+                        </div>
+                        <a href="tel:0953566216" class="btn-secondary w-full justify-center">
+                            <span>📞</span>
+                            <span>電話訂購</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 3: 臘肉 -->
+                <div class="product-card">
+                    <div class="h-64 bg-gradient-to-br from-[#CD5C5C] to-[#8B0000] flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute top-4 right-4 bg-[#C41E3A] text-white px-3 py-1 rounded-full text-xs font-bold">
+                            傳統
+                        </div>
+                        <span class="text-8xl">🥩</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-[#2C1810] mb-3">傳統臘肉</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            遵循古法醃製，自然風乾，保留最道地的臘肉風味，適合蒸煮炒各種料理方式。
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-[#FFF8DC] text-[#8B4513] px-3 py-1 rounded-full">古法醃製</span>
+                            <span class="text-xs bg-[#FFF8DC] text-[#8B4513] px-3 py-1 rounded-full">自然風乾</span>
+                        </div>
+                        <a href="tel:0953566216" class="btn-secondary w-full justify-center">
+                            <span>📞</span>
+                            <span>電話訂購</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 4: 香腸 -->
+                <div class="product-card">
+                    <div class="h-64 bg-gradient-to-br from-[#FF6347] to-[#DC143C] flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute top-4 right-4 bg-[#D4AF37] text-white px-3 py-1 rounded-full text-xs font-bold">
+                            經典
+                        </div>
+                        <span class="text-8xl">🌭</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-[#2C1810] mb-3">香醇香腸</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            新鮮豬肉灌製，香料比例完美，烤後外皮香脆內餡多汁，是BBQ的最佳選擇。
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-[#FFF8DC] text-[#8B4513] px-3 py-1 rounded-full">新鮮灌製</span>
+                            <span class="text-xs bg-[#FFF8DC] text-[#8B4513] px-3 py-1 rounded-full">香氣十足</span>
+                        </div>
+                        <a href="tel:0953566216" class="btn-secondary w-full justify-center">
+                            <span>📞</span>
+                            <span>電話訂購</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Section -->
+    <section id="order" class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="section-title">訂購方式</h2>
+                <p class="text-gray-600 mt-6 text-lg">簡單三步驟，輕鬆訂購美味</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-[#C41E3A] to-[#8B1428] rounded-full flex items-center justify-center text-white text-3xl font-bold mx-auto mb-6 shadow-lg">
+                        1
+                    </div>
+                    <h3 class="text-xl font-bold text-[#2C1810] mb-3">撥打電話</h3>
+                    <p class="text-gray-600 mb-4">請撥打訂購專線</p>
+                    <a href="tel:0953566216" class="text-2xl font-bold text-[#C41E3A] hover:text-[#8B1428] transition-colors">
+                        0953-566-216
+                    </a>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-[#D4AF37] to-[#B8941F] rounded-full flex items-center justify-center text-white text-3xl font-bold mx-auto mb-6 shadow-lg">
+                        2
+                    </div>
+                    <h3 class="text-xl font-bold text-[#2C1810] mb-3">告知需求</h3>
+                    <p class="text-gray-600">說明您需要的產品種類、數量及配送資訊</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-[#8B4513] to-[#654321] rounded-full flex items-center justify-center text-white text-3xl font-bold mx-auto mb-6 shadow-lg">
+                        3
+                    </div>
+                    <h3 class="text-xl font-bold text-[#2C1810] mb-3">完成訂購</h3>
+                    <p class="text-gray-600">確認訂單細節，等待美味送達</p>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-[#FFF8DC] to-[#FFE4B5] rounded-2xl p-8 sm:p-12 text-center border-4 border-[#D4AF37] shadow-xl">
+                <div class="text-6xl mb-6">📞</div>
+                <h3 class="text-3xl font-bold text-[#2C1810] mb-4">立即訂購</h3>
+                <p class="text-lg text-gray-700 mb-6">營業時間不固定，請先電話聯絡確認</p>
+                <a href="tel:0953566216" class="btn-primary text-xl px-12 py-4">
+                    <span>📞</span>
+                    <span>撥打 0953-566-216</span>
+                </a>
+                <div class="mt-8 pt-8 border-t-2 border-[#D4AF37]">
+                    <p class="text-sm text-gray-600">
+                        <strong>溫馨提醒：</strong>由於我們堅持現做現賣，確保產品新鮮度，<br>
+                        建議您提前電話預訂，以便我們為您準備最新鮮的產品
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 traditional-pattern bg-[#FAFAFA]">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="section-title">關於我們</h2>
+                <p class="text-gray-600 mt-6 text-lg">傳承百年工藝，堅持品質初心</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 mb-16">
+                <div class="bg-white rounded-2xl p-8 shadow-lg md:col-span-2">
+                    <div class="text-5xl mb-6">🏪</div>
+                    <h3 class="text-2xl font-bold text-[#2C1810] mb-4">佳佳香肉脯店的故事</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        「四十年老店，百年傳承」。誕生於雲林縣的佳佳香肉脯店由林家第一代傳承至今已邁入百年傳承，四十年前更名為佳佳香肉脯店，經過多年獨家精心研究配料，口味獨特，生產肉鬆、肉干、臘肉等產品，工廠自產，品質穩定可靠。
+                    </p>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        送禮實惠又受歡迎，產品銷售面極廣，含一般客戶、餐盒業、自助餐、學校團膳等餐飲業者皆是銷售客層，銷售線也遍及彰化、雲林、嘉義、台南、高雄等縣市。
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        產品新鮮好吃令顧客吃的安心又健康，深受消費者喜愛，是值得信賴的老品牌。
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-8 sm:p-12 shadow-lg border-2 border-[#D4AF37]">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="text-6xl mb-6">🏭</div>
+                        <h3 class="text-3xl font-bold text-[#2C1810] mb-4">工廠自產 品質保證</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            我們擁有自己的生產工廠，從原料採購到成品包裝，全程自主管理。這讓我們能夠嚴格控制每一個生產環節，確保產品品質穩定可靠。
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-start gap-3">
+                                <span class="text-[#C41E3A] text-xl">✓</span>
+                                <p class="text-gray-700">嚴選優質食材，確保源頭品質</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-[#C41E3A] text-xl">✓</span>
+                                <p class="text-gray-700">遵循傳統工藝，保留道地風味</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-[#C41E3A] text-xl">✓</span>
+                                <p class="text-gray-700">現代化管理，衛生安全有保障</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-[#C41E3A] text-xl">✓</span>
+                                <p class="text-gray-700">堅持新鮮製作，拒絕添加防腐劑</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 p-4 bg-[#FFF8DC] rounded-lg">
+                            <p class="text-sm text-gray-700 mb-2"><strong>📍 地址：</strong>雲林縣莿桐鄉埔子村122-1號</p>
+                            <a href="https://share.google/bQRxRWIvZV0c2DJSc" target="_blank" rel="noopener noreferrer" class="text-sm text-[#C41E3A] hover:text-[#8B1428] font-medium transition-colors flex items-center gap-2">
+                                <span>🗺️</span>
+                                <span>在 Google 地圖上查看</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-[#FFF8DC] to-[#FFE4B5] rounded-xl p-8 text-center">
+                        <div class="text-7xl mb-4">🏆</div>
+                        <h4 class="text-2xl font-bold text-[#8B4513] mb-3">品質承諾</h4>
+                        <p class="text-gray-700 mb-6">我們對每一份產品負責，用心製作，確保您吃得安心、放心</p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-white rounded-lg p-4">
+                                <p class="text-3xl font-bold text-[#C41E3A]">100%</p>
+                                <p class="text-sm text-gray-600 mt-1">自產自銷</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-4">
+                                <p class="text-3xl font-bold text-[#C41E3A]">0</p>
+                                <p class="text-sm text-gray-600 mt-1">防腐劑添加</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="gradient-red py-16 sm:py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">品嚐傳統美味</h2>
+            <p class="text-xl text-white/90 mb-8">四十年老店，百年傳承，工廠自產，品質保證</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="tel:0953566216" class="btn-primary bg-white text-[#C41E3A] hover:bg-[#FFF8DC] border-white text-lg px-10 py-4">
+                    <span>📞</span>
+                    <span>立即訂購 0953-566-216</span>
+                </a>
+            </div>
+            <p class="text-white/80 text-sm mt-6">營業時間不固定，請先電話聯絡</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#2C1810] text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <span>🥓</span>
+                        <span>佳佳香肉脯店</span>
+                    </h3>
+                    <p class="text-white/70 leading-relaxed">
+                        四十年老店，百年傳承<br>
+                        工廠自產，品質穩定可靠<br>
+                        堅持傳統，用心製作
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">聯絡資訊</h3>
+                    <div class="space-y-3 text-white/70">
+                        <p class="flex items-center gap-2">
+                            <span>📞</span>
+                            <a href="tel:0953566216" class="hover:text-[#D4AF37] transition-colors">0953-566-216</a>
+                        </p>
+                        <p class="flex items-start gap-2">
+                            <span>📍</span>
+                            <span>雲林縣莿桐鄉埔子村122-1號</span>
+                        </p>
+                        <p class="flex items-start gap-2">
+                            <span>⏰</span>
+                            <span>營業時間不固定<br>請先電話聯絡</span>
+                        </p>
+                        <p class="flex items-center gap-2">
+                            <span>🗺️</span>
+                            <a href="https://share.google/bQRxRWIvZV0c2DJSc" target="_blank" rel="noopener noreferrer" class="hover:text-[#D4AF37] transition-colors">Google 商家</a>
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">產品系列</h3>
+                    <ul class="space-y-2 text-white/70">
+                        <li>• 香濃肉鬆</li>
+                        <li>• 美味肉乾</li>
+                        <li>• 傳統臘肉</li>
+                        <li>• 香醇香腸</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/20 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p class="text-white/60 text-sm">© 2024 佳佳香肉脯店 版權所有</p>
+                <a href="https://kuse.ai" target="_blank" rel="noopener noreferrer" class="kuse-branding">
+                    <span>made with</span>
+                    <svg viewBox="0,0,160,44" xmlns="http://www.w3.org/2000/svg"><path d="m.01,20.65C-.43,8.25,9.3-2.03,22.04.34,34.78,2.72,43.29,8.32,43.29,22.9s-8.66,19.01-22.03,20.3C7.9,44.5.46,33.05.01,20.65z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="m146.76,7.94c8.07,0,13.24,6.15,13.24,14.58v1.39h-20.75c.45,4.05,3.51,7.37,8.57,7.37,2.62,0,5.73-1.05,7.62-2.94l2.67,3.83c-2.67,2.55-6.62,3.88-10.9,3.88-8.07,0-14.08-5.6-14.08-14.08,0-7.76,5.67-14.02,13.63-14.02zm0,4.77c-5.01,0-7.29,3.83-7.57,7.1h15.13c-.11-3.16-2.28-7.1-7.57-7.1z" fill="currentColor"></path><path d="m86.64,24.49c0,4.15,2.39,6.84,6.84,6.84,4.4,0,6.84-2.69,6.84-6.84V8.55h5.37v16.33c0,6.7-4.06,11.14-12.21,11.14-8.21,0-12.21-4.5-12.21-11.09V8.55h5.37v15.94zm32.99-16.55c4.49,0,8.06,1.47,10.6,3.86l-2.59,3.81c-2.05-2-5.28-3.08-8.06-3.08-2.88,0-4.84,1.37-4.84,3.32,0,1.91,2.64,2.54,5.81,3.27,4.59,1.08,10.26,2.4,10.26,8.46,0,4.94-3.76,8.41-11.14,8.41-4.98,0-8.94-1.76-11.24-4.11l2.54-4.11c1.86,1.91,5.18,3.67,8.84,3.67,3.91,0,5.57-1.66,5.57-3.62,0-2.3-2.88-2.98-6.21-3.76-4.54-1.08-9.87-2.3-9.87-8.06,0-4.5,4.2-8.06,10.31-8.06zM60.79,20.82,71.44,8.55h6.5L66.46,21.26,78.82,35.44h-6.5l-9.28-11.1-2.25,2.49v8.6h-5.33V8.55h5.33v12.27z" fill="currentColor"></path></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Phone Button -->
+    <a href="tel:0953566216" class="phone-float" aria-label="撥打電話">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+        </svg>
+    </a>
+
+    <script src="https://cdn.kuse.ai/sdk.prd.js"></script>
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById(`mobileMenuBtn`);
+        const mobileMenu = document.getElementById(`mobileMenu`);
+
+        mobileMenuBtn.addEventListener(`click`, () => {
+            mobileMenu.classList.toggle(`hidden`);
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll(`a`);
+        mobileLinks.forEach(link => {
+            link.addEventListener(`click`, () => {
+                mobileMenu.classList.add(`hidden`);
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll(`a[href^="#"]`).forEach(anchor => {
+            anchor.addEventListener(`click`, function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute(`href`));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: `smooth`
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navbar
+        let lastScroll = 0;
+        const nav = document.querySelector(`nav`);
+
+        window.addEventListener(`scroll`, () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                nav.style.boxShadow = `0 4px 20px rgba(0, 0, 0, 0.15)`;
+            } else {
+                nav.style.boxShadow = `0 2px 10px rgba(0, 0, 0, 0.1)`;
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Add animation on scroll for product cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: `0px 0px -50px 0px`
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = `1`;
+                    entry.target.style.transform = `translateY(0)`;
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll(`.product-card`).forEach(card => {
+            card.style.opacity = `0`;
+            card.style.transform = `translateY(30px)`;
+            card.style.transition = `all 0.6s ease`;
+            observer.observe(card);
+        });
+
+        // Kuse branding hover effect
+        const kuseBranding = document.querySelector(`.kuse-branding`);
+        if (kuseBranding) {
+            kuseBranding.addEventListener(`click`, (e) => {
+                e.preventDefault();
+                window.open(`https://kuse.ai`, `_blank`, `noopener,noreferrer`);
+            });
+        }
+    </script>
+
+</body></html>
